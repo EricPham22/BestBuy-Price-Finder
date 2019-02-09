@@ -32,7 +32,7 @@ public class Gui extends Application {
 		ProductName.setOnMouseClicked(e -> ProductName.clear());
 		ProductName.setOnAction(e -> {wi.setName(ProductName.getText());
 		ProductName.setText("Enter the name of the product");
-		});
+	});
 		
 		
 		TextField WebCode = new TextField("Enter the webcode");
@@ -40,16 +40,16 @@ public class Gui extends Application {
 		WebCode.setLayoutY(100);
 		WebCode.setMinSize(250, 30);
 		WebCode.setOnMouseClicked(e -> WebCode.clear());
-		WebCode.setOnAction(e -> wi.setWebCode(Integer.parseInt(WebCode.getText())));
-		WebCode.setOnMouseClicked(e -> WebCode.clear());
+		WebCode.setOnAction(e -> {wi.setWebCode(Integer.parseInt(WebCode.getText()));
+		WebCode.setText("Enter the webcode");});
 		
 		TextField URLField = new TextField("Enter the url");
 		URLField.setLayoutX(0);
 		URLField.setLayoutY(150);
 		URLField.setMinSize(250, 30);
 		URLField.setOnMouseClicked(e -> URLField.clear());
-		URLField.setOnAction(e -> wi.setURL(URLField.getText()));
-		URLField.setOnMouseClicked(e -> URLField.clear());
+		URLField.setOnAction(e -> {wi.setURL(URLField.getText());
+		URLField.setText("Enter the url");});
 
 		TextField Price = new TextField();
 		Price.setLayoutX(175);
@@ -74,6 +74,7 @@ public class Gui extends Application {
 		getPrice.setLayoutY(75);
 		getPrice.setOnAction(e ->{
 				try {
+					wi.getLink();
 					wi.getDoc(wi.CustomLink);
 					Price.setText(wi.getPrice());
 				} catch (IOException e1) {
